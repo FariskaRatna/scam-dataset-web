@@ -19,13 +19,13 @@ non_scam_2 = st.text_area("Contoh Pesan Non-Scam 2")
 image = st.file_uploader("Upload Screenshot (opsional)", type=["png", "jpg", "jpeg"])
 
 if st.button("Simpan"):
-    image_url = None
+    img_url = None
     
     # Upload gambar jika ada
     if image:
         file_name = f"{uuid.uuid4()}_{image.name}"
         supabase.storage.from_("scam-images").upload(file_name, image.getvalue())
-        image_url = f"{url}/storage/v1/object/public/scam-images/{file_name}"
+        img_url = f"{url}/storage/v1/object/public/scam-images/{file_name}"
     
     # Insert data ke tabel
     supabase.table("scam-dataset").insert({
@@ -35,7 +35,7 @@ if st.button("Simpan"):
         "scam": scam,
         "non_scam_1": non_scam_1,
         "non_scam_2": non_scam_2,
-        "image_url": image_url
+        "img_url": img_url
     }).execute()
     
     st.success("✅ Data berhasil disimpan!")
@@ -47,6 +47,6 @@ data = supabase.table("scam-dataset").select("*").order("id", desc=True).execute
 for row in data.data:
     st.write(f"**Nama:** {row['name']} | **Platform:** {row['platform']}")
     st.write(f"Pesan Scam: {row['scam']}")
-    if row['image_url']:
-        st.image(row['image_url'], width=300)
+    if row['img_url']:
+        st.image(row['img_url'], width=300)
     st.markdown("---")
