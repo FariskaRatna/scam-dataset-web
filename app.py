@@ -50,11 +50,11 @@ def add_field(counter_name, max_field):
         st.session_state[counter_name] += 1
 
 # --- Form Data Dasar ---
-st.header("📝 Data Dasar")
+st.header("📝 Informasi Pribadi")
 name = st.text_input("Nama Panggilan")
 age = st.number_input("Usia", 0, 120, step=1)
 no_hp = st.text_input("Nomor yang bisa dihubungi")
-platform = st.selectbox("Platform", ["WhatsApp", "Instagram", "Telegram", "Facebook", "Lainnya"])
+platform = st.selectbox("Platform", ["WhatsApp", "Telegram", "Instagram", "Lainnya"])
 bank = st.text_input("Bank yang digunakan")
 rekening = st.text_input("Nomor rekening")
 victim = st.text_input("Pernah menjadi korban? Kerugian mencapai berapa?")
