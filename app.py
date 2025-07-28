@@ -14,8 +14,8 @@ name = st.text_input("Nama")
 age = st.number_input("Usia", 0, 120, step=1)
 platform = st.selectbox("Platform", ["WhatsApp", "Instagram", "Telegram", "Facebook", "Lainnya"])
 scam = st.text_area("Contoh Pesan Scam")
-non_scam_1 = st.text_area("Contoh Pesan Non-Scam 1")
-non_scam_2 = st.text_area("Contoh Pesan Non-Scam 2")
+no_scam_1 = st.text_area("Contoh Pesan Non-Scam 1")
+no_scam_2 = st.text_area("Contoh Pesan Non-Scam 2")
 image = st.file_uploader("Upload Screenshot (opsional)", type=["png", "jpg", "jpeg"])
 
 if st.button("Simpan"):
@@ -33,8 +33,8 @@ if st.button("Simpan"):
         "age": age,
         "platform": platform,
         "scam": scam,
-        "non_scam_1": non_scam_1,
-        "non_scam_2": non_scam_2,
+        "no_scam_1": no_scam_1,
+        "no_scam_2": no_scam_2,
         "img_url": img_url
     }).execute()
     
