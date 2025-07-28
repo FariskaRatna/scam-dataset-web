@@ -24,6 +24,8 @@ name = st.text_input("Nama")
 age = st.number_input("Usia", 0, 120, step=1)
 no_hp = st.text_input("Nomor yang bisa dihubungi")
 platform = st.selectbox("Platform", ["WhatsApp", "Instagram", "Telegram", "Facebook", "Lainnya"])
+bank = st.text_input("Bank yang digunakan")
+rekening = st.text_input("Nomor rekening")
 
 # --- Input Pesan Scam ---
 st.subheader("Pesan Scam")
@@ -78,6 +80,8 @@ if st.button("💾 Simpan"):
         "age": age,
         "no_hp": no_hp,
         "platform": platform,
+        "bank": bank,
+        "rekening": rekening,
         "scam_texts": scam_texts,
         "no_scam_texts_1": no_scam_texts_1,
         "no_scam_texts_2": no_scam_texts_2,
