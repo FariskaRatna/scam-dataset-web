@@ -41,12 +41,12 @@ if st.button("Simpan"):
     st.success("✅ Data berhasil disimpan!")
 
 # Menampilkan data
-st.subheader("📊 Data Tersimpan")
-data = supabase.table("scam-dataset").select("*").order("id", desc=True).execute()
+# st.subheader("📊 Data Tersimpan")
+# data = supabase.table("scam-dataset").select("*").order("id", desc=True).execute()
 
-for row in data.data:
-    st.write(f"**Nama:** {row['name']} | **Platform:** {row['platform']}")
-    st.write(f"Pesan Scam: {row['scam']}")
-    if row['img_url']:
-        st.image(row['img_url'], width=300)
-    st.markdown("---")
+# for row in data.data:
+#     st.write(f"**Nama:** {row['name']} | **Platform:** {row['platform']}")
+#     st.write(f"Pesan Scam: {row['scam']}")
+#     if row['img_url']:
+#         st.image(row['img_url'], width=300)
+#     st.markdown("---")
