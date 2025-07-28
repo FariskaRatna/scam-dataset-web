@@ -28,7 +28,7 @@ if st.button("Simpan"):
         image_url = f"{url}/storage/v1/object/public/scam-images/{file_name}"
     
     # Insert data ke tabel
-    supabase.table("scam_dataset").insert({
+    supabase.table("scam-dataset").insert({
         "name": name,
         "age": age,
         "platform": platform,
@@ -42,7 +42,7 @@ if st.button("Simpan"):
 
 # Menampilkan data
 st.subheader("📊 Data Tersimpan")
-data = supabase.table("scam_dataset").select("*").order("id", desc=True).execute()
+data = supabase.table("scam-dataset").select("*").order("id", desc=True).execute()
 
 for row in data.data:
     st.write(f"**Nama:** {row['name']} | **Platform:** {row['platform']}")
