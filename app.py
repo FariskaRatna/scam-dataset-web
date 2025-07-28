@@ -94,6 +94,29 @@ uploaded_images = st.file_uploader(
 image_urls = []
 
 # --- Simpan ke Database ---
+# if st.button("💾 Simpan Data"):
+#     for image in uploaded_images:
+#         file_name = f"{uuid.uuid4()}_{image.name}"
+#         supabase.storage.from_("scam-images").upload(file_name, image.getvalue())
+#         image_url = f"{url}/storage/v1/object/public/scam-images/{file_name}"
+#         image_urls.append(image_url)
+
+#     supabase.table("scam-dataset").insert({
+#         "name": name,
+#         "age": age,
+#         "no_hp": no_hp,
+#         "platform": platform,
+#         "bank": bank,
+#         "rekening": rekening,
+#         "victim": victim,
+#         "scam_texts": scam_texts,
+#         "no_scam_texts_1": no_scam_texts_1,
+#         "no_scam_texts_2": no_scam_texts_2,
+#         "image_urls": image_urls
+#     }).execute()
+
+#     st.success("✅ Data berhasil disimpan!")
+
 if st.button("💾 Simpan Data"):
     for image in uploaded_images:
         file_name = f"{uuid.uuid4()}_{image.name}"
@@ -114,5 +137,9 @@ if st.button("💾 Simpan Data"):
         "no_scam_texts_2": no_scam_texts_2,
         "image_urls": image_urls
     }).execute()
+
+    # Reset input setelah simpan
+    for key in list(st.session_state.keys()):
+        del st.session_state[key]
 
     st.success("✅ Data berhasil disimpan!")
