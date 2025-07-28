@@ -12,6 +12,7 @@ st.title("📌 Input Dataset Scam")
 # Form Input
 name = st.text_input("Nama")
 age = st.number_input("Usia", 0, 120, step=1)
+no_hp = st.text_input("Nomor HP")
 platform = st.selectbox("Platform", ["WhatsApp", "Instagram", "Telegram", "Facebook", "Lainnya"])
 scam = st.text_area("Contoh Pesan Scam")
 no_scam_1 = st.text_area("Contoh Pesan Non-Scam 1")
@@ -31,6 +32,7 @@ if st.button("Simpan"):
     supabase.table("scam-dataset").insert({
         "name": name,
         "age": age,
+        "no_hp": no_hp,
         "platform": platform,
         "scam": scam,
         "no_scam_1": no_scam_1,
