@@ -60,7 +60,7 @@ if st.button("➕ Tambah Pesan Non-Scam 2"):
 
 # --- Upload Gambar ---
 uploaded_images = st.file_uploader(
-    "Upload Screenshot bila Chat dalam Bentuk Gambar (maksimal 15 gambar)", 
+    "Upload Screenshot bila Chat Scam dalam Bentuk Gambar (maksimal 15 gambar)", 
     type=["png", "jpg", "jpeg"], 
     accept_multiple_files=True
 )
