@@ -45,52 +45,66 @@ with st.expander("📌 Lihat Contoh Chat Scam & Non-Scam"):
     )
 
 # --- Session State untuk jumlah input dinamis ---
-MAX_MESSAGES = 15
-if "scam_count" not in st.session_state:
-    st.session_state.scam_count = 1
-if "no_scam1_count" not in st.session_state:
-    st.session_state.no_scam1_count = 1
-if "no_scam2_count" not in st.session_state:
-    st.session_state.no_scam2_count = 1
+for counter in ["scam_count", "no_scam1_count", "no_scam2_count"]:
+    if counter not in st.session_state:
+        st.session_state[counter] = 1
+
+# --- Fungsi tambah field ---
+def add_field(counter_name, max_field):
+    if st.session_state[counter_name] < max_field:
+        st.session_state[counter_name] += 1
 
 # --- Form Data Dasar ---
-st.header("📝 Form Data Pelapor")
+st.header("📝 Data Dasar")
 name = st.text_input("Nama Panggilan")
 age = st.number_input("Usia", 0, 120, step=1)
 no_hp = st.text_input("Nomor yang bisa dihubungi")
-platform = st.selectbox("Platform", ["WhatsApp", "Instagram", "Telegram", "Lainnya"])
+platform = st.selectbox("Platform", ["WhatsApp", "Instagram", "Telegram", "Facebook", "Lainnya"])
 bank = st.text_input("Bank yang digunakan")
 rekening = st.text_input("Nomor rekening")
 victim = st.text_input("Pernah menjadi korban? Kerugian mencapai berapa?")
 
 # --- Input Pesan Scam ---
-st.header("📩 Input Pesan")
-st.subheader("Pesan Scam")
-scam_texts = [st.text_area(f"Pesan Scam {i+1}", key=f"scam_{i}") for i in range(st.session_state.scam_count)]
-if st.button("➕ Tambah Pesan Scam"):
-    if st.session_state.scam_count < MAX_MESSAGES:
-        st.session_state.scam_count += 1
+st.subheader("📩 Pesan Scam (Maksimal 15)")
+scam_texts = []
+for i in range(st.session_state.scam_count):
+    scam_texts.append(st.text_area(f"Pesan Scam {i+1}", key=f"scam_{i}"))
+
+if st.session_state.scam_count < 15:
+    st.button("➕ Tambah Pesan Scam", on_click=add_field, args=("scam_count", 15))
+else:
+    st.button("✅ Sudah Maksimal", disabled=True)
 
 # --- Input Pesan Non-Scam 1 ---
-st.subheader("Pesan Non-Scam 1")
-no_scam_texts_1 = [st.text_area(f"Pesan Non-Scam 1 - {i+1}", key=f"no_scam1_{i}") for i in range(st.session_state.no_scam1_count)]
-if st.button("➕ Tambah Pesan Non-Scam 1"):
-    if st.session_state.no_scam1_count < MAX_MESSAGES:
-        st.session_state.no_scam1_count += 1
+st.subheader("💬 Pesan Non-Scam 1 (Maksimal 15)")
+no_scam_texts_1 = []
+for i in range(st.session_state.no_scam1_count):
+    no_scam_texts_1.append(st.text_area(f"Pesan Non-Scam 1 - {i+1}", key=f"no_scam1_{i}"))
+
+if st.session_state.no_scam1_count < 15:
+    st.button("➕ Tambah Pesan Non-Scam 1", on_click=add_field, args=("no_scam1_count", 15))
+else:
+    st.button("✅ Sudah Maksimal", disabled=True)
 
 # --- Input Pesan Non-Scam 2 ---
-st.subheader("Pesan Non-Scam 2")
-no_scam_texts_2 = [st.text_area(f"Pesan Non-Scam 2 - {i+1}", key=f"no_scam2_{i}") for i in range(st.session_state.no_scam2_count)]
-if st.button("➕ Tambah Pesan Non-Scam 2"):
-    if st.session_state.no_scam2_count < MAX_MESSAGES:
-        st.session_state.no_scam2_count += 1
+st.subheader("💬 Pesan Non-Scam 2 (Maksimal 15)")
+no_scam_texts_2 = []
+for i in range(st.session_state.no_scam2_count):
+    no_scam_texts_2.append(st.text_area(f"Pesan Non-Scam 2 - {i+1}", key=f"no_scam2_{i}"))
+
+if st.session_state.no_scam2_count < 15:
+    st.button("➕ Tambah Pesan Non-Scam 2", on_click=add_field, args=("no_scam2_count", 15))
+else:
+    st.button("✅ Sudah Maksimal", disabled=True)
 
 # --- Upload Gambar ---
+st.subheader("🖼 Upload Screenshot (Maksimal 15 Gambar)")
 uploaded_images = st.file_uploader(
-    "📷 Upload Screenshot Chat Scam (maksimal 15 gambar)", 
+    "Upload Screenshot bila Chat Scam dalam Bentuk Gambar", 
     type=["png", "jpg", "jpeg"], 
     accept_multiple_files=True
 )
+
 image_urls = []
 
 # --- Simpan ke Database ---
