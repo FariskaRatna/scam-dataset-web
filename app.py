@@ -25,16 +25,16 @@ for i in range(1, 11):
 
 # Input hingga 10 chat non-scam
 no_scam_texts_1 = []
-st.subheader("Pesan Non-Scam (maksimal 10)")
+st.subheader("Pesan Non-Scam 1 (maksimal 10)")
 for i in range(1, 11):
-    text_val = st.text_area(f"Pesan Non-Scam {i}", key=f"non_scam_{i}")
+    text_val = st.text_area(f"Pesan Non-Scam 1 {i}", key=f"no_scam_1_{i}")
     if text_val:
         no_scam_texts_1.append(text_val)
 
 no_scam_texts_2 = []
-st.subheader("Pesan Non-Scam (maksimal 10)")
+st.subheader("Pesan Non-Scam 2 (maksimal 10)")
 for i in range(1, 11):
-    text_val = st.text_area(f"Pesan Non-Scam {i}", key=f"non_scam_{i}")
+    text_val = st.text_area(f"Pesan Non-Scam 2 {i}", key=f"no_scam_2_{i}")
     if text_val:
         no_scam_texts_2.append(text_val)
 
@@ -61,8 +61,8 @@ if st.button("Simpan"):
         "no_hp": no_hp,
         "platform": platform,
         "scam_texts": scam_texts,       # array teks scam
-        "non_scam_texts_1": no_scam_texts_1, # array teks non-scam
-        "non_scam_texts_2": no_scam_texts_2, # array teks non-scam
+        "no_scam_texts_1": no_scam_texts_1, # array teks non-scam
+        "no_scam_texts_2": no_scam_texts_2, # array teks non-scam
         "image_urls": image_urls        # array URL gambar
     }).execute()
 
