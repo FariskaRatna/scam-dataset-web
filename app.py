@@ -16,10 +16,16 @@ with st.expander("📌 Lihat Contoh Chat Scam & Non-Scam"):
     st.markdown(
         """
         <div style="background-color:#ffe5e5; padding:10px; border-radius:5px;">
-        <b>𝗦𝗧𝗢𝗣 𝗕𝗘𝗞𝗘𝗥𝗝𝗔 𝗞𝗘𝗥𝗔𝗦 ⛔</b><br>
-        𝗦𝗔𝗔𝗧𝗡𝗬𝗔 𝗕𝗘𝗞𝗘𝗥𝗝𝗔 𝗖𝗘𝗥𝗗𝗔𝗦<br><br>
-        𝗧𝗜𝗡𝗚𝗞𝗔𝗧𝗞𝗔𝗡 𝗣𝗘𝗡𝗗𝗔𝗣𝗔𝗧𝗔𝗡 𝗔𝗡𝗗𝗔 𝗠𝗘𝗟𝗔𝗟𝗨𝗜 𝗜𝗡𝗩𝗘𝗦𝗧𝗔𝗦𝗜 𝗧𝗥𝗔𝗗𝗜𝗡𝗚 𝗙𝗢𝗥𝗘𝗫 📈<br>
-        𝗧𝗿𝗮𝗱𝗶𝗻𝗴 𝗙𝗼𝗿𝗲𝘅 ... (pesan panjang scam trading)<br>
+        Hallo semuanya 👋
+        Ada yang mau nyobain jadi BUZZER ga kakak???
+
+        Gajinya lumayan banget loh bisa melebihi UMR kalau rajin cukup modal tiktok saja! 
+        Tanpa batasan usia loh semua kalangan bisa join!
+
+        Misi: hanya like doang, per tugasnya pasti di bayar 50-70k
+        Chat saya sekarang buruan cuan 🤑🤑🤑
+
+        Lumayan buat tambah uang jajan kalian 🙌🙌🙌
         </div>
         """,
         unsafe_allow_html=True
